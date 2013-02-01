@@ -111,6 +111,7 @@ static int macb_send(struct eth_device *edev, void *packet,
 {
 	struct macb_device *macb = edev->priv;
 	unsigned long ctrl;
+	int ret;
 
 	dev_dbg(macb->dev, "%s\n", __func__);
 
@@ -132,9 +133,10 @@ static int macb_send(struct eth_device *edev, void *packet,
 		dev_err(macb->dev, "TX underrun\n");
 	if (ctrl & TXBUF_EXHAUSTED)
 		dev_err(macb->dev, "TX buffers exhausted in mid frame\n");
+	if (ret)
+		dev_err(macb->dev,"TX timeout\n");
 
-	/* No one cares anyway */
-	return 0;
+	return ret;
 }
 
 static void reclaim_rx_buffers(struct macb_device *macb,
