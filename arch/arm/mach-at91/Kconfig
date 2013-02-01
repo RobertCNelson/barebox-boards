@@ -148,6 +148,7 @@ config SOC_AT91SAM9N12
 	select SOC_AT91SAM9
 	select HAVE_AT91_DBGU0
 	select AT91SAM9G45_RESET
+	select HAVE_AT91_FUSE
 	help
 	  Select this if you are using Atmel's AT91SAM9N12 SoC.
 

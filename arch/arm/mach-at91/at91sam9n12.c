@@ -27,6 +27,11 @@ static struct clk pioCD_clk = {
 	.pmc_mask	= 1 << AT91SAM9N12_ID_PIOCD,
 	.type		= CLK_TYPE_PERIPHERAL,
 };
+static struct clk fuse_clk = {
+	.name		= "fuse_clk",
+	.pmc_mask	= 1 << AT91SAM9N12_ID_FUSE,
+	.type		= CLK_TYPE_PERIPHERAL,
+};
 static struct clk usart0_clk = {
 	.name		= "usart0_clk",
 	.pmc_mask	= 1 << AT91SAM9N12_ID_USART0,
@@ -126,6 +131,7 @@ static struct clk ssc_clk = {
 static struct clk *periph_clocks[] __initdata = {
 	&pioAB_clk,
 	&pioCD_clk,
+	&fuse_clk,
 	&usart0_clk,
 	&usart1_clk,
 	&usart2_clk,
@@ -156,6 +162,7 @@ static struct clk_lookup periph_clocks_lookups[] = {
 	CLKDEV_DEV_ID("at91sam9x5-gpio2", &pioCD_clk),
 	CLKDEV_DEV_ID("at91sam9x5-gpio3", &pioCD_clk),
 	CLKDEV_DEV_ID("at91-pit", &mck),
+	CLKDEV_DEV_ID("at91-fuse", &fuse_clk),
 	CLKDEV_CON_DEV_ID("hck1", "atmel_hlcdfb", &lcdc_clk),
 };
 
@@ -221,6 +228,7 @@ static void at91sam9n12_initialize(void)
 
 	at91_add_pit(AT91SAM9N12_BASE_PIT);
 	at91_add_sam9_smc(DEVICE_ID_SINGLE, AT91SAM9N12_BASE_SMC, 0x200);
+	at91_add_fuse(AT91SAM9N12_BASE_FUSE, 10);
 }
 
 AT91_SOC_START(sam9n12)

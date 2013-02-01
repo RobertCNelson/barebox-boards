@@ -22,7 +22,7 @@
 #define AT91_ID_SYS		1	/* System Controller Interrupt */
 #define AT91SAM9N12_ID_PIOAB	2	/* Parallel I/O Controller A and B */
 #define AT91SAM9N12_ID_PIOCD	3	/* Parallel I/O Controller C and D */
-/* Reserved			4	*/
+#define AT91SAM9N12_ID_FUSE	4	/* FUSE Controller */
 #define AT91SAM9N12_ID_USART0	5	/* USART 0 */
 #define AT91SAM9N12_ID_USART1	6	/* USART 1 */
 #define AT91SAM9N12_ID_USART2	7	/* USART 2 */
