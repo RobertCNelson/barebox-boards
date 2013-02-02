@@ -246,6 +246,11 @@ static struct clk tdes_clk = {
 	.pid		= SAMA5D3_ID_TDES,
 	.type		= CLK_TYPE_PERIPHERAL,
 };
+static struct clk fuse_clk = {
+	.name		= "fuse_clk",
+	.pid		= SAMA5D3_ID_FUSE,
+	.type		= CLK_TYPE_PERIPHERAL,
+};
 
 static struct clk *periph_clocks[] __initdata = {
 	&pit_clk,
@@ -285,6 +290,7 @@ static struct clk *periph_clocks[] __initdata = {
 	&sha_clk,
 	&aes_clk,
 	&tdes_clk,
+	&fuse_clk,
 };
 
 static struct clk pck0 = {
@@ -323,6 +329,7 @@ static struct clk_lookup periph_clocks_lookups[] = {
 	CLKDEV_DEV_ID("at91sam9x5-gpio3", &pioD_clk),
 	CLKDEV_DEV_ID("at91sam9x5-gpio4", &pioE_clk),
 	CLKDEV_DEV_ID("at91-pit", &pit_clk),
+	CLKDEV_DEV_ID("at91-fuse", &fuse_clk),
 	CLKDEV_CON_DEV_ID("hck1", "atmel_hlcdfb", &lcdc_clk),
 };
 
@@ -390,6 +397,7 @@ static void sama5d3_initialize(void)
 
 	at91_add_pit(SAMA5D3_BASE_PIT);
 	at91_add_sam9_smc(DEVICE_ID_SINGLE, SAMA5D3_BASE_HSMC + 0x600, 0xa0);
+	at91_add_fuse(SAMA5D3_BASE_FUSE, 8);
 }
 
 AT91_SOC_START(sama5d3)

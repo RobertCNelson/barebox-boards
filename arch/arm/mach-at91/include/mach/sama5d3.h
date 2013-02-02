@@ -93,6 +93,7 @@
 #define AT91_DDRSDRC0	(0xffffea00 - AT91_BASE_SYS)
 #define AT91_RSTC	(0xfffffe00 - AT91_BASE_SYS)
 
+#define SAMA5D3_BASE_FUSE	0xffffe400
 #define SAMA5D3_BASE_PIOA	0xfffff200
 #define SAMA5D3_BASE_PIOB	0xfffff400
 #define SAMA5D3_BASE_PIOC	0xfffff600

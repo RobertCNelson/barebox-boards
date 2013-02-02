@@ -198,6 +198,7 @@ config ARCH_SAMA5D3
 	select HAVE_AT91_DBGU1
 	select HAS_MACB
 	select AT91SAM9G45_RESET
+	select HAVE_AT91_FUSE
 
 endchoice
 
