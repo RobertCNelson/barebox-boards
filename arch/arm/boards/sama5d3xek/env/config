@@ -2,7 +2,8 @@
 
 # use 'dhcp' to do dhcp in barebox and in kernel
 # use 'none' if you want to skip kernel ip autoconfiguration
-ip=dhcp-barebox
+#ip=dhcp-barebox
+ip=none
 global.dhcp.vendor_id=barebox-sama5d3xek
 global.dhcp.client_id="${sama5d3xcm.board}-${sama5d3xcm.vendor}"
 
