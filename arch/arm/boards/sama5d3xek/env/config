@@ -37,7 +37,7 @@ rootfs_mtdblock_nand=6
 
 m25p80_parts="64k(bootstrap),384k(barebox),256k(bareboxenv),256k(bareboxenv2),128k(oftree),-(updater)"
 
-autoboot_timeout=3
+autoboot_timeout=1
 
 bootargs="console=ttyS0,115200 rw"
 
