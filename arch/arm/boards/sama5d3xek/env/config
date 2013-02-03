@@ -13,11 +13,11 @@ global.dhcp.client_id="${sama5d3xcm.board}-${sama5d3xcm.vendor}"
 #eth0.serverip=a.b.c.d
 
 # can be either 'nfs', 'tftp', 'nor' or 'nand'
-kernel_loc=nfs
+kernel_loc=nand
 # can be either 'net', 'nor', 'nand' or 'initrd'
-rootfs_loc=net
+rootfs_loc=nand
 # can be either 'nfs', 'tftp', 'nand' or empty
-oftree_loc=nfs
+oftree_loc=nand
 
 # can be either 'jffs2' or 'ubifs'
 rootfs_type=ubifs
@@ -32,13 +32,13 @@ kernelimage=zImage
 
 nand_device=atmel_nand
 nand_parts="256k(at91bootstrap),384k(barebox)ro,256k@768k(bareboxenv),256k(bareboxenv2),128k@1536k(oftree),5M@2M(kernel),-@8M(rootfs)"
-rootfs_mtdblock_nand=7
+rootfs_mtdblock_nand=6
 
 m25p80_parts="64k(bootstrap),384k(barebox),256k(bareboxenv),256k(bareboxenv2),128k(oftree),-(updater)"
 
 autoboot_timeout=3
 
-bootargs="console=ttyS0,115200"
+bootargs="console=ttyS0,115200 rw"
 
 # set a fancy prompt (if support is compiled in)
 PS1="\e[1;32mbarebox@\e[1;31m\h:\w\e[0m\n# "
